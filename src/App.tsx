@@ -5,7 +5,7 @@ import axios from 'axios'
 import './App.css'
 
 export default function App() {
-  const [characters, setCharacters] = useState([])
+  const [characters, setCharacters] = useState<[]>([])
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const [charactersPerPage] = useState(100)
@@ -24,7 +24,7 @@ export default function App() {
     fetchCharacters()
   }, [currentPage])
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   return (
     <Fragment>
