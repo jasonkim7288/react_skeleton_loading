@@ -3,7 +3,7 @@ import './Characters.scss'
 import '../App.css'
 import "placeholder-loading/src/scss/placeholder-loading.scss"
 
-function Characters({ characters, loading }: {characters: any[], loading: boolean}) {
+function Characters({ characters, loading }) {
   if (loading) {
     return (
       <div className="main-width mx-auto px-3">

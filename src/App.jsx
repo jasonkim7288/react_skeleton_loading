@@ -1,11 +1,13 @@
 import React, { useEffect, useState, Fragment } from 'react'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 import Characters from './components/Characters'
 import Pagination from './components/Pagination'
+import Character from './components/Character'
 import axios from 'axios'
 import './App.css'
 
 export default function App() {
-  const [characters, setCharacters] = useState<[]>([])
+  const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const [charactersPerPage] = useState(100)
@@ -24,13 +26,24 @@ export default function App() {
     fetchCharacters()
   }, [currentPage])
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <Fragment>
-      <h1 className='my-5 text-warning text-weight-bold text-center'>Marvel Characters</h1>
-      <Pagination charactersPerPage={charactersPerPage} totalCharacters={totalCharacters} paginate={paginate} />
-      <Characters characters={characters} loading={loading} />
-    </Fragment>
+    <BrowserRouter>
+      <Route
+        exact path="/"
+        component={ () =>
+            <Fragment>
+              <h1 className='my-5 text-warning text-weight-bold text-center'>Marvel Characters</h1>
+              <Pagination charactersPerPage={charactersPerPage} totalCharacters={totalCharacters} paginate={paginate} />
+              <Characters characters={characters} loading={loading} />
+            </Fragment>
+        }
+      />
+      <Route
+        exact path="/:id"
+        render={props => <Character character={characters.filter(ch => ch.id === props.match.params.id)[0]}/>}
+      />
+    </BrowserRouter>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Pagination({ charactersPerPage, totalCharacters, paginate }: { charactersPerPage: number, totalCharacters: number, paginate: Function}) {
+function Pagination({ charactersPerPage, totalCharacters, paginate }) {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalCharacters / charactersPerPage); i++) {
     pageNumbers.push(i);
