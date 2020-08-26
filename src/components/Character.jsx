@@ -57,7 +57,7 @@ function Character({ characterId }) {
               <p className="detail-desc">{character.description}</p>
               <p className="detail-desc"><strong>Details : </strong><a href={detailUrl} target="_blank">{detailUrl}</a></p>
             </div>
-              <h3 className="mt-3"><strong>Comics : </strong></h3>
+              <h3 className="mt-5"><strong>Comics : </strong></h3>
               <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
                 {comics.map(comic => (
                   <div className="col p-4">

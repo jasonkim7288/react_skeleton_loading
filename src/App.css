@@ -5,7 +5,14 @@ body {
   background-blend-mode: soft-light;
   background-color: #020202C0;
   background-size: contain;
+  background-repeat: repeat-y;
   color: white;
+}
+
+@media (min-width: 1350px) {
+  body {
+    background-size: cover;
+  }
 }
 
 .main-width {
