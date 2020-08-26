@@ -35,7 +35,7 @@ export default function App() {
         component={ () =>
             <Fragment>
               <h1 className='my-5 text-warning text-weight-bold text-center'>Marvel Characters</h1>
-              <Pagination charactersPerPage={charactersPerPage} totalCharacters={totalCharacters} paginate={paginate} />
+              <Pagination charactersPerPage={charactersPerPage} totalCharacters={totalCharacters} currentPage={currentPage} paginate={paginate} />
               <Characters characters={characters} loading={loading} />
             </Fragment>
         }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Pagination({ charactersPerPage, totalCharacters, paginate }) {
+function Pagination({ charactersPerPage, totalCharacters, currentPage, paginate }) {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalCharacters / charactersPerPage); i++) {
     pageNumbers.push(i);
@@ -14,7 +14,7 @@ function Pagination({ charactersPerPage, totalCharacters, paginate }) {
             <a
               onClick={() => paginate(number)}
               href="#"
-              className="page-link bg-dark text-white"
+              className={`page-link ${currentPage === number ? 'bg-warning text-dark font-weight-bolder' : 'bg-dark text-white'}`}
             >
               {number}
             </a>
