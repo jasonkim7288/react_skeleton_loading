@@ -27,7 +27,7 @@ function Character({ characterId }) {
   const fetchNthComic = (n) => {
     if (!character || n >= comicsLength || n >= 10) return;
     const comicItem = character.comics.items[n]
-    axios.get(`${comicItem.resourceURI}?ts=1&apikey=${process.env.REACT_APP_API_KEY}&hash=0e28f56f22ea92850f2a9d1bc7b638bb`)
+    axios.get(`${comicItem.resourceURI.replace('http://', 'https://')}?ts=1&apikey=${process.env.REACT_APP_API_KEY}&hash=0e28f56f22ea92850f2a9d1bc7b638bb`)
       .then(res => {
         console.log('res:', res)
         let {...tempComic} = res.data.data.results[0];
