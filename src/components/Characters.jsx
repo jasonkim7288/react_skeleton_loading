@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Characters.scss'
 import '../App.css'
 import "placeholder-loading/src/scss/placeholder-loading.scss"
@@ -9,7 +10,7 @@ function Characters({ characters, loading }) {
       <div className="main-width mx-auto px-3">
         <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
           {Array.from(Array(20).keys()).map(i =>
-            <div className="ph-item movie-card-ph mb-4 mx-auto">
+            <div className="ph-item char-card-ph mb-4 mx-auto" key={i}>
               <div className="ph-col-12">
                 <div className="ph-picture card-img-top"></div>
                 <div className="ph-row">
@@ -34,17 +35,19 @@ function Characters({ characters, loading }) {
     <div className="main-width mx-auto px-3">
       <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
         {characters.map(character => (
-          <div className="col mb-4">
-            <div className="card bg-dark h-100 rounded-0 movie-card mx-auto" >
-              <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} className="card-img-top" alt="marvel character" />
-              <div className="card-body p-2">
-                <h4
-                  className="card-title font-weight-normal"
-                  style={{ minHeight: 60, maxHeight: 60, overflow: "hidden" }}
-                >{character.name}</h4>
+          <Link to={character.id.toString()} key={character.id.toString()} character={character}>
+            <div className="col mb-4">
+              <div className="card bg-dark h-100 rounded-0 char-card mx-auto" >
+                <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} className="card-img-top" alt="marvel character" />
+                <div className="card-body p-2">
+                  <h4
+                    className="card-title font-weight-normal"
+                    style={{ minHeight: 60, maxHeight: 60, overflow: "hidden" }}
+                  >{character.name}</h4>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

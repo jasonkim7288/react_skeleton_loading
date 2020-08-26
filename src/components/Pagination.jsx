@@ -13,7 +13,7 @@ function Pagination({ charactersPerPage, totalCharacters, paginate }) {
           <li key={number} className="page-item">
             <a
               onClick={() => paginate(number)}
-              href="!#"
+              href="#"
               className="page-link bg-dark text-white"
             >
               {number}

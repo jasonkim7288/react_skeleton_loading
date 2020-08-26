@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import Characters from './components/Characters'
 import Pagination from './components/Pagination'
 import Character from './components/Character'
@@ -14,15 +14,15 @@ export default function App() {
   const [totalCharacters, setTotalCharacters] = useState(1500)
 
   useEffect(() => {
-    const fetchCharacters = async () => {
+    const fetchCharacters = () => {
       setLoading(true)
-      console.log('process.env:', process.env.REACT_APP_API_KEY)
-      const res = await axios.get(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${process.env.REACT_APP_API_KEY}&hash=0e28f56f22ea92850f2a9d1bc7b638bb&limit=${charactersPerPage}&offset=${(currentPage - 1) * charactersPerPage}`)
-      setCharacters(res.data.data.results)
-      setTotalCharacters(parseInt(res.data.data.total))
-      setLoading(false)
+      axios.get(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${process.env.REACT_APP_API_KEY}&hash=0e28f56f22ea92850f2a9d1bc7b638bb&limit=${charactersPerPage}&offset=${(currentPage - 1) * charactersPerPage}`)
+        .then(res => {
+          setCharacters(res.data.data.results)
+          setTotalCharacters(parseInt(res.data.data.total))
+          setLoading(false)
+        })
     }
-
     fetchCharacters()
   }, [currentPage])
 
@@ -42,7 +42,7 @@ export default function App() {
       />
       <Route
         exact path="/:id"
-        render={props => <Character character={characters.filter(ch => ch.id === props.match.params.id)[0]}/>}
+        render={props => <Character characterId={props.match.params.id}/>}
       />
     </BrowserRouter>
   )

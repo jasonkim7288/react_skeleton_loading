@@ -1,4 +1,4 @@
-.movie-card-ph {
+.char-card-ph {
   background-color: #181818 !important;
   width: 300px;
   max-width: 300px;
@@ -10,7 +10,7 @@
   }
 }
 
-.movie-card {
+.char-card {
   background-color: #181818 !important;
   width: 300px;
 
@@ -23,4 +23,8 @@
     height: 274px;
     object-fit: cover;
   }
+}
+
+.char-card-single {
+  background-color: #181818 !important;
 }
