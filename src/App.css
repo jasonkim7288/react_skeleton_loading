@@ -5,7 +5,7 @@ body {
   background-blend-mode: soft-light;
   background-color: #020202C0;
   background-size: contain;
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   color: white;
 }
 
