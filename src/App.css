@@ -9,12 +9,6 @@ body {
   color: white;
 }
 
-@media (min-width: 1350px) {
-  body {
-    background-size: cover;
-  }
-}
-
 a:link {
   text-decoration: none;
 }

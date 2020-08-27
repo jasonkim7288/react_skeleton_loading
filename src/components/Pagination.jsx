@@ -8,13 +8,13 @@ function Pagination({ charactersPerPage, totalCharacters, currentPage, paginate 
 
   return (
     <nav>
-      <ul className="pagination justify-content-center">
+      <ul className="pagination justify-content-center mb-5">
         {pageNumbers.map(number => (
           <li key={number} className="page-item">
             <a
               onClick={() => paginate(number)}
               href="#"
-              className={`page-link ${currentPage === number ? 'bg-warning text-dark font-weight-bolder' : 'bg-dark text-white'}`}
+              className={`page-link d-inline-block ${currentPage === number ? 'bg-warning text-dark font-weight-bolder' : 'bg-dark text-white'}`}
             >
               {number}
             </a>
